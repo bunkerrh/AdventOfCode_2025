@@ -23,12 +23,11 @@ def main():
             if rotation.startswith("L"):
                 log("Subtracting from current: " + str(currentPos))
                 currentPos -= turns
-                log(currentPos)
-
                 currentPos %= 100
                 if currentPos == 0:
                     log("Adding one to passcount: " + str(passCount))
                     passCount += 1
+                log("New Position: " + str(currentPos))
                 continue
 
             elif rotation.startswith("R"):
@@ -38,11 +37,8 @@ def main():
                 if currentPos == 0:
                     log("Adding one to passcount: " + str(passCount))
                     passCount += 1
+                log("New Position: " + str(currentPos))
                 continue
-
-            log("New Position: " + str(currentPos))
-            log("")
-            
 
         log("My password is " + str(passCount))
         output.write("\n")
