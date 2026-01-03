@@ -31,7 +31,7 @@ def main():
                         log("DEBUGGING 1")
                         log("Adding to passcount: " + str(1))
                         log("Starting position + rotation: " + str(startingPosition) + "+" + str(rotation))
-                if(rotation <0):
+                elif(rotation <0):
                     if(startingPosition + rotation) <= 0:
                         loopPassCount += 1
                         log("DEBUGGING 2")
@@ -39,7 +39,7 @@ def main():
                         log("Starting position + rotation: " + str(startingPosition) + "+" + str(rotation))
 
             # We have added the number of times we have cross zero with 100
-            else: 
+            elif(abs(rotation) >= 101): 
                 loopPassCount += abs(currentPos) // 100
                 log("Adding to passcount: " + str(abs(rotation) // 100))
                 log("Loop passcount: " + str(loopPassCount))
@@ -48,7 +48,7 @@ def main():
                 #now we need to handle spillover
                 if(rotation < 0):
                     spillOver = abs(rotation) % 100
-                    if(startingPosition - spillOver < 0):
+                    if(startingPosition - spillOver < 0 and startingPosition != 0):
                         loopPassCount += 1
                         log("DEBUGGING 4")
                         log("Adding to passcount: " + str(1))
@@ -82,4 +82,4 @@ if __name__ == "__main__":
     main()
 
 
-#6705
+#6698
